@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class HashTagTokenizerTester {
 
     static String FILE_NAME = "dictionary.txt";
