@@ -4,7 +4,7 @@ public class HashTagTokenizer {
 
 	public static void main(String[] args) {
 
-		String hashTag = "SpaceX";//args[0];
+		String hashTag = args[0];
 		String []dictionary = readDictionary("dictionary.txt");
 		breakHashTag(hashTag, dictionary);
 	}
