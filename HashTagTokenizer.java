@@ -31,7 +31,7 @@ public class HashTagTokenizer {
 
 
 	public static void breakHashTag(String hashtag, String[] dictionary) {
-		String lowercaseH = hashtag.toLowerCase(); // lowerases all the letters
+		String lowercaseH = hashtag.toLowerCase(); // lowercases all the letters
 		// Base case: do nothing (return) if hashtag is an empty string.
         if (lowercaseH.isEmpty()) {
             return ;
