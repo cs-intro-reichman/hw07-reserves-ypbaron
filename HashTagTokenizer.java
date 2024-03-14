@@ -39,7 +39,7 @@ public class HashTagTokenizer {
  
         int N = lowercaseH.length();
 
-        for (int i = 1; i < N ; i++) {
+        for (int i = 1; i <= N ; i++) {
 			boolean isExist = existInDictionary(lowercaseH.substring(0, i), dictionary);
 			if (isExist) {
 				System.out.println(lowercaseH.substring(0, i));
