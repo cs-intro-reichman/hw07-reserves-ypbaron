@@ -3,16 +3,16 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		// String word = args[0]; // "hello";
+		String word = "hell0";///args[0]; // "hello";
 		// String word1 = "concensus";
 		// String word2 = "consensus";
 
 		// System.out.println(levenshtein(word1, word2));
 
-		// int threshold = Integer.parseInt(args[1]);// 2; //
-		// String[] dictionary = readDictionary("dictionary.txt");
-		// String correction = spellChecker(word, threshold, dictionary);
-		// System.out.println(correction);
+		int threshold = 1;//Integer.parseInt(args[1]);// 2; //
+		String[] dictionary = readDictionary("dictionary.txt");
+		String correction = spellChecker(word, threshold, dictionary);
+		System.out.println(correction);
 	}
 
 	public static String tail(String str) {
@@ -57,21 +57,39 @@ public class SpellChecker {
 
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		// Your code goes here
-		int minDistance = levenshtein(word, dictionary[0]); // a temporary placment
-		String closeWord = dictionary[0];
+		
+		int minDistance = levenshtein(dictionary[1], word); // temporarly checks distance until is changed to its minimum value
+		String minWord = "";
 
-		for (int i = 0; i < dictionary.length ; i++){
-			int newDistance = levenshtein(word, dictionary[i]);
+		for(int i = 1; i < dictionary.length; i++){
+			int newDistance = levenshtein(dictionary[i], word); // look at the levenstein distance with everyword in the dictionary
+			if (newDistance < minDistance){
+				minDistance = newDistance;
+				minWord = dictionary[i];
+			}
 
-			if(newDistance < minDistance) {
-				minDistance = newDistance; // finding the minumum distance
-				closeWord = dictionary[i]; // brings the closest word to correct
-
+			if (minDistance < threshold){
+				return minWord;
 			}
 		}
-		if (minDistance <= threshold)
-			return closeWord;
-			return word;
+		return minWord;
 	}
 }
+
+		
+		// int minDistance = levenshtein(word, dictionary[1]); // a temporary placment
+		// String theNewWord = dictionary[1];
+
+		// for (int i = 0; i < dictionary.length ; i++){
+		// 	int newDistance = levenshtein(word, dictionary[i]);
+
+		// 	if(newDistance < minDistance) {
+		// 		minDistance = newDistance; // finding the minumum distance
+		// 		theNewWord = dictionary[i]; // brings the closest word to correct
+
+		// 	}
+		// }
+		// if (minDistance <= threshold)
+		// 	return theNewWord;
+		// 	return word;
 
