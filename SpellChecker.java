@@ -3,13 +3,13 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		String word = "hell0";///args[0]; // "hello";
+		String word = args[0]; // "hello";
 		// String word1 = "concensus";
 		// String word2 = "consensus";
 
 		// System.out.println(levenshtein(word1, word2));
 
-		int threshold = 1;//Integer.parseInt(args[1]);// 2; //
+		int threshold = Integer.parseInt(args[1]);// 2; //
 		String[] dictionary = readDictionary("dictionary.txt");
 		String correction = spellChecker(word, threshold, dictionary);
 		System.out.println(correction);
@@ -77,19 +77,3 @@ public class SpellChecker {
 }
 
 		
-		// int minDistance = levenshtein(word, dictionary[1]); // a temporary placment
-		// String theNewWord = dictionary[1];
-
-		// for (int i = 0; i < dictionary.length ; i++){
-		// 	int newDistance = levenshtein(word, dictionary[i]);
-
-		// 	if(newDistance < minDistance) {
-		// 		minDistance = newDistance; // finding the minumum distance
-		// 		theNewWord = dictionary[i]; // brings the closest word to correct
-
-		// 	}
-		// }
-		// if (minDistance <= threshold)
-		// 	return theNewWord;
-		// 	return word;
-
