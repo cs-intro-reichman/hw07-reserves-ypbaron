@@ -3,16 +3,16 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		String word = args[0]; // "hello";
-		// String word1 = "concensus";
-		// String word2 = "consensus";
+		// String word = "coooool";///args[0]; // "hello";
+		String word1 = "spell";
+		String word2 = "SPELL";
 
-		// System.out.println(levenshtein(word1, word2));
+		System.out.println(levenshtein(word1, word2));
 
-		int threshold = Integer.parseInt(args[1]);// 2; //
-		String[] dictionary = readDictionary("dictionary.txt");
-		String correction = spellChecker(word, threshold, dictionary);
-		System.out.println(correction);
+		// int threshold = 2; //Integer.parseInt(args[1]);// 2; //
+		// String[] dictionary = readDictionary("dictionary.txt");
+		// String correction = spellChecker(word, threshold, dictionary);
+		// System.out.println(correction);
 	}
 
 	public static String tail(String str) {
@@ -24,8 +24,8 @@ public class SpellChecker {
 
 	public static int levenshtein(String word1, String word2) {
 		// Your code goes here
-		word1.toLowerCase();
-		word2.toLowerCase();
+		word1 = word1.toLowerCase();
+		word2 = word2.toLowerCase();
 		String tail1 = tail(word1);// calls tails
 		String tail2 = tail(word2);// calls tails
 
@@ -68,7 +68,7 @@ public class SpellChecker {
 				minWord = dictionary[i];
 			}
 
-			if (minDistance < threshold){
+			if (minDistance <= threshold){
 				return minWord;
 			}
 		}
