@@ -68,7 +68,7 @@ public class SpellChecker {
 				minWord = dictionary[i];
 			}
 
-			if (minDistance < threshold){
+			if (minDistance <= threshold){
 				return minWord;
 			}
 		}
